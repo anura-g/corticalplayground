@@ -1,4 +1,9 @@
+* {
+    margin: 0px;
+    content: border-box;
+}
+
 body {
 
-    background-color: aliceblue;
+    background-color: red;
 }
