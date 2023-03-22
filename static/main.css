@@ -36,5 +36,11 @@ h1 {
 #canvas {
     width: 500px;
     height: 375px;
+}
 
+#styledImages {
+    width: 500px;
+    height: 375px;
+    border: 2px solid red;
+    display: flex;    
 }
