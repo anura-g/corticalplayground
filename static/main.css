@@ -1,0 +1,46 @@
+* {
+    margin: 0px;
+    content: border-box;
+}
+
+h1 {
+    background-color: hsl(300, 16%, 84%);
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 80px;
+    display: block;
+    line-height: 2;
+}
+
+#container {
+    margin-left: 60px;
+    margin-top: 120px;
+    width: 500px;
+    height: 375px;
+    border: 10px #333 solid;
+
+}
+
+#videoElement {
+    width: 500px;
+    height: 375px;
+    background-color: #666;
+}
+
+#btn {
+    font-size: 30px;
+    margin-top: 20px;
+    margin-left: 120px;
+}
+
+#emptyCanvas {
+    width: 500px;
+    height: 375px;
+}
+
+#canvas {
+    width: 500px;
+    height: 375px;
+    /* border: 2px solid red; */
+    display: flex;    
+}
