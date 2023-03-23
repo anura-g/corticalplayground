@@ -13,6 +13,7 @@ socket = SocketIO(app)
 def index():
     return render_template('index.html')
 
+# HANDLE THE WEBCAM FRAMES BEING SENT VIA SOCKET
 @socket.on('image')
 def imageHandler(data):
 
