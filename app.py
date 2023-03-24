@@ -4,7 +4,7 @@ from utils import base64_to_image, invert, image_to_base64
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
-socket = SocketIO(app)
+socket = SocketIO(app, async_mode = 'eventlet')
 
 
 
@@ -25,4 +25,4 @@ def imageHandler(data):
    
 
 if __name__ == "__main__":
-    socket.run(app, debug=True)
+    socket.run(app, debug=False)

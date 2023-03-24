@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     var btn = document.getElementById('btn');
+    var stop_btn = document.getElementById('btn-stop');
     var video = document.getElementById('videoElement');
     var emptyCanvas = document.getElementById('emptyCanvas');
     var emptyCtx = emptyCanvas.getContext('2d');
@@ -9,7 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
     const FPS = 60;
 
-    var socket = io.connect()
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+
 
     btn.addEventListener("click", function() {
 
@@ -23,12 +26,18 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 1000/FPS); 
         })
         .catch(function(error){ 
-            console.log("Error: " + error)    
+            console.log("Error: " + error);
         });
 
     });
 
+    stop_btn.addEventListener("click", () => {
+        video.srcObject = null;
+    });
 
+    
+
+    // draw webcam frame to empty canvas and emit in string format to server
     function logData() {
         emptyCtx.drawImage(video, 0, 0, emptyCanvas.width, emptyCanvas.height);
         var data = emptyCanvas.toDataURL('image/jpeg', 0.5);

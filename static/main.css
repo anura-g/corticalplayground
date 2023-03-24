@@ -33,6 +33,12 @@ h1 {
     margin-left: 120px;
 }
 
+#btn-stop {
+    font-size: 30px;
+    margin-top: 20px;
+    margin-left: 120px;
+}
+
 #emptyCanvas {
     width: 500px;
     height: 375px;
@@ -41,6 +47,8 @@ h1 {
 #canvas {
     width: 500px;
     height: 375px;
-    /* border: 2px solid red; */
-    display: flex;    
+    border: 2px solid red;
+
+     
+    margin-top: 12px;
 }
