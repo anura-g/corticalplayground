@@ -1,13 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
     var btn = document.getElementById('btn');
     var video = document.getElementById('videoElement');
+    var emptyCanvas = document.getElementById('emptyCanvas');
+    var emptyCtx = emptyCanvas.getContext('2d');
     var canvas = document.getElementById('canvas');
-    var context = canvas.getContext('2d');
-    var styledImages = document.getElementById('styledImages');
-  
-    const FPS = 1;
+    var ctx = canvas.getContext('2d');
 
-    var socket = io.connect('http://' + document.domain + ':' + location.port);
+  
+    const FPS = 60;
+
+    var socket = io.connect()
 
     btn.addEventListener("click", function() {
 
@@ -28,15 +30,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     function logData() {
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        var data = canvas.toDataURL('image/jpeg', 0.5);
-        // context.clearRect(0, 0, video.clientWidth, video.clientHeight);
+        emptyCtx.drawImage(video, 0, 0, emptyCanvas.width, emptyCanvas.height);
+        var data = emptyCanvas.toDataURL('image/jpeg', 0.5);
+        emptyCtx.clearRect(0, 0, video.clientWidth, video.clientHeight);
         socket.emit('image', data);
     };
 
+
     socket.on('response_back', function(response_image){
-        console.log(response_image);
-        styledImages.setAttribute('src', response_image);
+
+        // create new image element to load the received data
+        const img = new Image();
+
+        // when the image is loaded, draw it onto the canvas
+        img.onload = () => {
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        };
+
+        // set the image source to receive the image data
+        img.src = response_image;
     });
     
 });

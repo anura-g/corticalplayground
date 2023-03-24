@@ -33,14 +33,14 @@ h1 {
     margin-left: 120px;
 }
 
-#canvas {
+#emptyCanvas {
     width: 500px;
     height: 375px;
 }
 
-#styledImages {
+#canvas {
     width: 500px;
     height: 375px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;    
 }
