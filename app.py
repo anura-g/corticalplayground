@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 # socket = SocketIO(app, async_mode = 'eventlet')
 socket = SocketIO(app)
-
+socket.init_app(app, cors_allowed_origins="*")
 
 
 
