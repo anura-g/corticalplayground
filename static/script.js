@@ -8,10 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
     var ctx = canvas.getContext('2d');
 
   
-    const FPS = 60;
+    const FPS = 10;
 
-    // var socket = io.connect('http://' + document.domain + ':' + location.port);
-    var socket = io.connect();
+    var socket = io.connect('http://' + document.domain + ':' + '8080');
+    // var socket = io.connect();
     console.log('http://' + document.domain + ':' + location.port);
 
 
