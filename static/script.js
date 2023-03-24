@@ -7,10 +7,17 @@ document.addEventListener("DOMContentLoaded", () => {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
 
+    const io = require("socket.io")(httpServer, {
+        cors: {
+          origin: 'https://' + document.domain + ':' + location.port,
+          methods: ["GET", "POST"]
+        }
+      });
   
     const FPS = 10;
 
     var socket = io.connect('https://' + document.domain + ':' + location.port, {transports : ['websocket']}, {secure: true});
+    console.log('https://' + document.domain + ':' + location.port)
     // var socket = io.connect();
     
 
