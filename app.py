@@ -3,6 +3,10 @@ from flask_socketio import SocketIO
 from utils import base64_to_image, invert, image_to_base64
 from gevent import monkey
 monkey.patch_all()
+import logging 
+logging.getLogger('socketio').setLevel(logging.ERROR)
+logging.getLogger('engine').setLevel(logging.ERROR)
+logging.getLogger('geventwebsocket.handler').setLevel(logging.ERROR)
 
 
 app = Flask(__name__)
