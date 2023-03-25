@@ -20,11 +20,11 @@ def index():
 # handle the webcam frames that are being sent from the client
 @socket.on('image')
 def imageHandler(data):
-    print("SOCKET TRIGGERED CORRECTLY")
+   
     decoded_img = base64_to_image(data)
     convertedImage = invert(decoded_img)
     response_image = image_to_base64(convertedImage)
-    print(response_image)
+
     socket.emit('response_back', response_image)
    
 

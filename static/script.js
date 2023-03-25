@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   
-    const FPS = 60;
+    const FPS = 30;
 
     var socket = io.connect();
     console.log('https://' + document.domain + ':' + location.port)
