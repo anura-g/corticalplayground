@@ -1,6 +1,8 @@
 from flask import Flask, render_template, url_for
 from flask_socketio import SocketIO
 from utils import base64_to_image, invert, image_to_base64
+from gevent import monkey
+monkey.patch_all()
 
 
 app = Flask(__name__)
