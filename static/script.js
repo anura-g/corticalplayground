@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     const FPS = 10;
 
-    var socket = io.connect({transports : ['websocket']}, {secure: true});
+    var socket = io.connect();
     console.log('https://' + document.domain + ':' + location.port)
     // var socket = io.connect();
     
