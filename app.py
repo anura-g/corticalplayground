@@ -5,7 +5,7 @@ from gevent import monkey
 monkey.patch_all()
 import logging 
 logging.getLogger('socketio').setLevel(logging.ERROR)
-logging.getLogger('engine').setLevel(logging.ERROR)
+logging.getLogger('engineio').setLevel(logging.ERROR)
 logging.getLogger('geventwebsocket.handler').setLevel(logging.ERROR)
 
 
