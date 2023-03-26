@@ -6,41 +6,38 @@ document.addEventListener("DOMContentLoaded", () => {
     var emptyCtx = emptyCanvas.getContext('2d');
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
-
-
-  
     const FPS = 30;
-
-    var socket = io.connect();
-    console.log('https://' + document.domain + ':' + location.port)
-    // var socket = io.connect();
+    const socket = io.connect()
+    // console.log('https://' + document.domain + ':' + location.port)
     
-
-
-
+    
     btn.addEventListener("click", function() {
 
-        console.log("Click registered")
+        console.log("starting feed")
 
         navigator.mediaDevices.getUserMedia({video: true})
         .then(function(stream){
             video.srcObject = stream;
+            console.log("webcam feed connected")
             setInterval(() => {
                 logData();
             }, 1000/FPS); 
         })
         .catch(function(error){ 
             console.log("Error: " + error);
+            console.log("could not start the feed")
         });
 
     });
 
+    
     stop_btn.addEventListener("click", () => {
         video.srcObject = null;
+        console.log("Webcam feed stopped")
+
     });
 
     
-
     // draw webcam frame to empty canvas and emit in string format to server
     function logData() {
         emptyCtx.drawImage(video, 0, 0, emptyCanvas.width, emptyCanvas.height);
