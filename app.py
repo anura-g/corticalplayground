@@ -21,6 +21,9 @@ socket.init_app(app, cors_allowed_origins="*")
 def index():
     return render_template('index.html')
 
+@socket.on('connect')
+def handle_connection(data):
+    print('user connected')
 
 # handle the webcam frames that are being sent from the client
 @socket.on('image')
@@ -34,4 +37,4 @@ def imageHandler(data):
    
 
 if __name__ == "__main__":
-    socket.run(app, debug=True)
+    socket.run(app, debug=False)

@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const FPS = 30;
     const socket = io.connect()
     // console.log('https://' + document.domain + ':' + location.port)
+
+    socket.on('connect', () => {
+        
+    });
     
     
     btn.addEventListener("click", function() {
