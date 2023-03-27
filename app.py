@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, request, url_for
 from flask_socketio import SocketIO
 from utils import base64_to_image, invert, image_to_base64
 from gevent import monkey
@@ -33,7 +33,7 @@ def imageHandler(data):
     convertedImage = invert(decoded_img)
     response_image = image_to_base64(convertedImage)
 
-    socket.emit('response_back', response_image)
+    socket.emit('response_back', response_image, to=request.sid)
    
 
 if __name__ == "__main__":
