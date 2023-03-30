@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    var btn = document.getElementById('btn');
-    var stop_btn = document.getElementById('btn-stop');
+    var btn_start = document.getElementById('btn_start');
+    var btn_stop = document.getElementById('btn_stop');
     var video = document.getElementById('videoElement');
     var emptyCanvas = document.getElementById('emptyCanvas');
     var emptyCtx = emptyCanvas.getContext('2d');
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
     
-    btn.addEventListener("click", function() {
+    btn_start.addEventListener("click", function() {
 
         console.log("starting feed")
 
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     
-    stop_btn.addEventListener("click", () => {
+    btn_stop.addEventListener("click", () => {
         video.srcObject = null;
         console.log("Webcam feed stopped")
 
