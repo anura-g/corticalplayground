@@ -101,11 +101,11 @@ header h1 {
 @media only screen and (max-width: 1200px) and (min-width: 769px)  {
 
     .display-container{
-        height: 550px;
+        height: 480px;
     }
 
     header h1 {
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
 
     .btn-wrapper button {
