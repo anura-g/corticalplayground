@@ -11,6 +11,7 @@ header h1 {
     font-size: 5rem;
     display: block;
     line-height: 2;
+    overflow: hidden;
     width: 100%;
 }
 
@@ -24,6 +25,7 @@ header h1 {
     justify-content: space-around;
     align-items: center;
 }
+
 
 
 .video-wrapper,
@@ -79,3 +81,36 @@ header h1 {
     height: 0px;
 }
 
+
+@media only screen and (max-width: 768px) {
+    .display-container{
+        height: 400px;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+  
+    }
+
+    .btn-wrapper button {
+        font-size: 1rem;
+    }
+}
+
+
+@media only screen and (max-width: 1200px) and (min-width: 769px)  {
+
+    .display-container{
+        height: 550px;
+    }
+
+    header h1 {
+        font-size: 3.5rem;
+    }
+
+    .btn-wrapper button {
+        font-size: 2rem;
+
+    }
+
+}
