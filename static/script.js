@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // console.log('https://' + document.domain + ':' + location.port)
 
     socket.on('connect', () => {
-        
+        socket.emit('client connected');    
     });
     
     
