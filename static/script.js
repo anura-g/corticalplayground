@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // console.log('https://' + document.domain + ':' + location.port)
 
     socket.on('connect', () => {
-        
+        socket.emit('client connected');    
     });
     
     
@@ -58,7 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // when the image is loaded, draw it onto the canvas
         img.onload = () => {
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            const videoWidth = video.videoWidth;
+            const videoHeight = video.videoHeight;
+
+            canvas.width = videoWidth;
+            canvas.height = videoHeight;
+
+            ctx.drawImage(img, 0, 0, videoWidth, videoHeight);
         };
 
         // set the image source to receive the image data
